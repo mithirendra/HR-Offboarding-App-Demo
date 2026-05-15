@@ -1,0 +1,41 @@
+employee_id,name,role,department,manager,departure_type,resignation_date,last_day,status,rehire_eligible
+EMP001,Aisha Zhang,Marketing Manager,Marketing,Priya Nair,Voluntary,2026-04-26,2026-05-14,Active,TBD
+EMP002,Marcus Chen,Digital Marketing Specialist,Marketing,Priya Nair,Voluntary,2026-05-05,2026-05-25,Active,TBD
+EMP003,Ben Hassan,Senior Engineer,Engineering,David Lim,Mutual Agreement,2026-04-26,2026-05-24,Active,No
+EMP004,Tariq Andersen,Senior Engineer,Engineering,David Lim,Voluntary,2026-04-23,2026-05-11,Completed,No
+EMP005,Emma Osei,Marketing Manager,Marketing,Priya Nair,Mutual Agreement,2026-04-18,2026-05-13,Active,No
+EMP006,Ben Osei,DevOps Engineer,Engineering,David Lim,Mutual Agreement,2026-04-16,2026-05-02,Completed,No
+EMP007,Lisa Reid,Project Manager,Operations,Fatima Al-Hassan,Voluntary,2026-03-29,2026-04-19,Completed,Yes
+EMP008,Emma Johnson,HR Business Partner,People & Culture,Amelia Brooks,Voluntary,2026-04-11,2026-05-06,Completed,No
+EMP009,Aisha Tan,Project Manager,Operations,Fatima Al-Hassan,Mutual Agreement,2026-04-02,2026-04-21,Completed,TBD
+EMP010,Mei Wilson,Talent Acquisition Specialist,People & Culture,Amelia Brooks,Voluntary,2026-04-23,2026-05-14,Active,Yes
+EMP011,Sofia Wilson,HR Business Partner,People & Culture,Amelia Brooks,Voluntary,2026-04-23,2026-05-09,Completed,TBD
+EMP012,Lucas Wilson,Project Manager,Operations,Fatima Al-Hassan,Voluntary,2026-03-30,2026-04-27,Completed,No
+EMP013,Ben Park,Senior Accountant,Finance,Robert Tan,Mutual Agreement,2026-04-24,2026-05-21,Active,No
+EMP014,Priya Mensah,Project Manager,Operations,Fatima Al-Hassan,Voluntary,2026-04-09,2026-04-25,Completed,Yes
+EMP015,Tariq Adeyemi,Senior Accountant,Finance,Robert Tan,Involuntary,2026-05-06,2026-06-01,Active,TBD
+EMP016,Ben Chen,Contract Specialist,Legal,Claire Dupont,Mutual Agreement,2026-03-28,2026-04-14,Completed,No
+EMP017,Daniel Hassan,Operations Manager,Operations,Fatima Al-Hassan,Voluntary,2026-04-30,2026-05-28,Active,TBD
+EMP018,Zara Osei,Sales Manager,Sales,Michael Torres,Mutual Agreement,2026-03-31,2026-04-23,Completed,TBD
+EMP019,Ravi Ng,Talent Acquisition Specialist,People & Culture,Amelia Brooks,Voluntary,2026-04-06,2026-05-06,Completed,TBD
+EMP020,Sarah Osei,Operations Coordinator,Operations,Fatima Al-Hassan,Voluntary,2026-04-17,2026-05-10,Completed,Yes
+EMP021,Lisa Ferreira,HR Business Partner,People & Culture,Amelia Brooks,Voluntary,2026-05-06,2026-05-24,Active,TBD
+EMP022,Aisha Mensah,Compliance Manager,Legal,Claire Dupont,Voluntary,2026-04-02,2026-04-29,Completed,TBD
+EMP023,Emma Sharma,L&D Manager,People & Culture,Amelia Brooks,Involuntary,2026-04-12,2026-05-12,Completed,Yes
+EMP024,Lisa Andersen,Talent Acquisition Specialist,People & Culture,Amelia Brooks,Mutual Agreement,2026-05-09,2026-05-30,Active,Yes
+EMP025,Marcus Zhang,Software Engineer,Engineering,David Lim,Voluntary,2026-05-06,2026-05-21,Active,Yes
+EMP026,Lucas Ibrahim,L&D Manager,People & Culture,Amelia Brooks,Mutual Agreement,2026-04-06,2026-04-24,Completed,TBD
+EMP027,Lucas Hassan,Compliance Manager,Legal,Claire Dupont,Voluntary,2026-04-28,2026-05-15,Active,TBD
+EMP028,Tariq Hassan,Product Designer,Product,James Okafor,Voluntary,2026-04-11,2026-04-26,Completed,Yes
+EMP029,James Zhang,Product Designer,Product,James Okafor,Mutual Agreement,2026-04-28,2026-05-18,Active,No
+EMP030,Oliver Johnson,Controller,Finance,Robert Tan,Voluntary,2026-04-11,2026-05-02,Completed,No
+EMP031,Ben Chen,Marketing Manager,Marketing,Priya Nair,Voluntary,2026-05-05,2026-05-26,Active,No
+EMP032,Nurul Wilson,Legal Analyst,Legal,Claire Dupont,Involuntary,2026-05-07,2026-05-26,Active,Yes
+EMP033,Mei Kim,Product Designer,Product,James Okafor,Voluntary,2026-04-13,2026-05-12,Completed,Yes
+EMP034,Marcus Novak,Sales Manager,Sales,Michael Torres,Voluntary,2026-04-06,2026-04-21,Completed,Yes
+EMP035,Zara Mensah,DevOps Engineer,Engineering,David Lim,Mutual Agreement,2026-04-30,2026-05-15,Active,Yes
+EMP036,Kofi Tan,Finance Analyst,Finance,Robert Tan,Involuntary,2026-03-28,2026-04-18,Completed,Yes
+EMP037,Kofi Tan,HR Business Partner,People & Culture,Amelia Brooks,Voluntary,2026-04-14,2026-05-14,Active,No
+EMP038,Wei Johnson,L&D Manager,People & Culture,Amelia Brooks,Voluntary,2026-04-15,2026-05-03,Completed,No
+EMP039,Sarah Lin,Operations Manager,Operations,Fatima Al-Hassan,Voluntary,2026-04-01,2026-04-18,Completed,TBD
+EMP040,Priya Sharma,L&D Manager,People & Culture,Amelia Brooks,Voluntary,2026-05-06,2026-05-27,Active,No

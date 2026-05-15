@@ -1,0 +1,16 @@
+task_id,category,description,assigned_to,due_week
+T001,Knowledge Transfer,Document key processes and responsibilities,Employee,1
+T002,Knowledge Transfer,Create stakeholder contact list,Employee,1
+T003,Knowledge Transfer,Write handover notes for ongoing projects,Employee,2
+T004,Asset Return,Return laptop and peripherals to IT,Employee,3
+T005,Asset Return,Return access card and building pass,Employee,3
+T006,Asset Return,Clear personal files from company systems,Employee,3
+T007,Documentation,Complete exit survey,Employee,4
+T008,Documentation,Review and sign final separation documents,Employee,4
+T009,Farewell,Opt in or out of alumni network,Employee,4
+T010,Compliance,Submit IT access revocation request,Manager,3
+T011,Compliance,Complete and submit exit interview notes to HR,Manager,4
+T012,Handover,Assign knowledge transfer recipient,Manager,1
+T013,Handover,Review and sign off handover documents,Manager,2
+T014,Handover,Communicate departure to team,Manager,2
+T015,Replacement,Trigger replacement hiring workflow,Manager,2

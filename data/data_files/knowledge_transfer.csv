@@ -1,0 +1,124 @@
+employee_id,employee_name,department,document_title,handover_to,status,submitted_date
+EMP001,Aisha Zhang,Marketing,Campaign calendar and status,Priya Nair,Submitted,2026-04-30
+EMP001,Aisha Zhang,Marketing,Ongoing campaign briefs,Priya Nair,In Progress,
+EMP001,Aisha Zhang,Marketing,Agency and vendor contacts,Priya Nair,Pending,
+EMP001,Aisha Zhang,Marketing,Brand guidelines summary,Priya Nair,Pending,
+EMP002,Marcus Chen,Marketing,Campaign calendar and status,Priya Nair,Submitted,2026-05-08
+EMP002,Marcus Chen,Marketing,Ongoing campaign briefs,Priya Nair,In Progress,
+EMP002,Marcus Chen,Marketing,Agency and vendor contacts,Priya Nair,Pending,
+EMP002,Marcus Chen,Marketing,Brand guidelines summary,Priya Nair,Pending,
+EMP003,Ben Hassan,Engineering,Codebase walkthrough,David Lim,Submitted,2026-05-03
+EMP003,Ben Hassan,Engineering,System architecture overview,David Lim,Submitted,
+EMP004,Tariq Andersen,Engineering,On-call runbook,David Lim,Signed off,2026-05-08
+EMP004,Tariq Andersen,Engineering,CI/CD pipeline documentation,David Lim,Signed off,2026-05-07
+EMP005,Emma Osei,Marketing,Social media account access,Priya Nair,Submitted,2026-04-23
+EMP005,Emma Osei,Marketing,Agency and vendor contacts,Priya Nair,In Progress,
+EMP005,Emma Osei,Marketing,Brand guidelines summary,Priya Nair,Pending,
+EMP005,Emma Osei,Marketing,Campaign calendar and status,Priya Nair,Pending,
+EMP006,Ben Osei,Engineering,On-call runbook,David Lim,Signed off,2026-04-27
+EMP006,Ben Osei,Engineering,System architecture overview,David Lim,Signed off,2026-04-27
+EMP007,Lisa Reid,Operations,Process documentation,Fatima Al-Hassan,Signed off,2026-04-12
+EMP007,Lisa Reid,Operations,Project status tracker,Fatima Al-Hassan,Signed off,2026-04-16
+EMP007,Lisa Reid,Operations,Risk register,Fatima Al-Hassan,Signed off,2026-04-13
+EMP007,Lisa Reid,Operations,Supplier contact list,Fatima Al-Hassan,Signed off,2026-04-16
+EMP008,Emma Johnson,People & Culture,L&D programme schedule,Amelia Brooks,Signed off,2026-05-03
+EMP008,Emma Johnson,People & Culture,Policy review calendar,Amelia Brooks,Signed off,2026-05-03
+EMP008,Emma Johnson,People & Culture,HR system access guide,Amelia Brooks,Signed off,2026-05-02
+EMP008,Emma Johnson,People & Culture,Active recruitment pipeline,Amelia Brooks,Signed off,2026-05-01
+EMP009,Aisha Tan,Operations,Supplier contact list,Fatima Al-Hassan,Signed off,2026-04-15
+EMP009,Aisha Tan,Operations,Project status tracker,Fatima Al-Hassan,Signed off,2026-04-16
+EMP010,Mei Wilson,People & Culture,L&D programme schedule,Amelia Brooks,Signed off,2026-04-27
+EMP010,Mei Wilson,People & Culture,Employee relations case notes,Amelia Brooks,Pending,
+EMP010,Mei Wilson,People & Culture,HR system access guide,Amelia Brooks,Pending,
+EMP011,Sofia Wilson,People & Culture,Active recruitment pipeline,Amelia Brooks,Signed off,2026-05-05
+EMP011,Sofia Wilson,People & Culture,Employee relations case notes,Amelia Brooks,Signed off,2026-05-05
+EMP011,Sofia Wilson,People & Culture,L&D programme schedule,Amelia Brooks,Signed off,2026-05-03
+EMP012,Lucas Wilson,Operations,Process documentation,Fatima Al-Hassan,Signed off,2026-04-22
+EMP012,Lucas Wilson,Operations,Supplier contact list,Fatima Al-Hassan,Signed off,2026-04-24
+EMP012,Lucas Wilson,Operations,Risk register,Fatima Al-Hassan,Signed off,2026-04-23
+EMP013,Ben Park,Finance,Budget tracker handover,Robert Tan,Signed off,2026-04-27
+EMP013,Ben Park,Finance,Audit preparation notes,Robert Tan,In Progress,
+EMP014,Priya Mensah,Operations,Process documentation,Fatima Al-Hassan,Signed off,2026-04-19
+EMP014,Priya Mensah,Operations,Supplier contact list,Fatima Al-Hassan,Signed off,2026-04-19
+EMP014,Priya Mensah,Operations,Risk register,Fatima Al-Hassan,Signed off,2026-04-21
+EMP014,Priya Mensah,Operations,SLA and contract summary,Fatima Al-Hassan,Signed off,2026-04-20
+EMP015,Tariq Adeyemi,Finance,Vendor payment schedule,Robert Tan,Signed off,2026-05-13
+EMP015,Tariq Adeyemi,Finance,Budget tracker handover,Robert Tan,Submitted,
+EMP016,Ben Chen,Legal,Compliance calendar,Claire Dupont,Signed off,2026-04-08
+EMP016,Ben Chen,Legal,Entity and filing schedule,Claire Dupont,Signed off,2026-04-11
+EMP016,Ben Chen,Legal,Pending legal matters summary,Claire Dupont,Signed off,2026-04-11
+EMP017,Daniel Hassan,Operations,Supplier contact list,Fatima Al-Hassan,Signed off,2026-05-07
+EMP017,Daniel Hassan,Operations,Risk register,Fatima Al-Hassan,In Progress,
+EMP018,Zara Osei,Sales,Sales playbook,Michael Torres,Signed off,2026-04-18
+EMP018,Zara Osei,Sales,CRM data hygiene notes,Michael Torres,Signed off,2026-04-16
+EMP018,Zara Osei,Sales,Client relationship summary,Michael Torres,Signed off,2026-04-20
+EMP019,Ravi Ng,People & Culture,Active recruitment pipeline,Amelia Brooks,Signed off,2026-05-03
+EMP019,Ravi Ng,People & Culture,L&D programme schedule,Amelia Brooks,Signed off,2026-05-01
+EMP019,Ravi Ng,People & Culture,HR system access guide,Amelia Brooks,Signed off,2026-04-30
+EMP019,Ravi Ng,People & Culture,Employee relations case notes,Amelia Brooks,Signed off,2026-05-02
+EMP020,Sarah Osei,Operations,Project status tracker,Fatima Al-Hassan,Signed off,2026-05-06
+EMP020,Sarah Osei,Operations,Process documentation,Fatima Al-Hassan,Signed off,2026-05-03
+EMP020,Sarah Osei,Operations,SLA and contract summary,Fatima Al-Hassan,Signed off,2026-05-07
+EMP021,Lisa Ferreira,People & Culture,L&D programme schedule,Amelia Brooks,Submitted,2026-05-13
+EMP021,Lisa Ferreira,People & Culture,Employee relations case notes,Amelia Brooks,Pending,
+EMP021,Lisa Ferreira,People & Culture,Active recruitment pipeline,Amelia Brooks,Pending,
+EMP021,Lisa Ferreira,People & Culture,HR system access guide,Amelia Brooks,Pending,
+EMP022,Aisha Mensah,Legal,Entity and filing schedule,Claire Dupont,Signed off,2026-04-23
+EMP022,Aisha Mensah,Legal,Pending legal matters summary,Claire Dupont,Signed off,2026-04-26
+EMP023,Emma Sharma,People & Culture,L&D programme schedule,Amelia Brooks,Signed off,2026-05-08
+EMP023,Emma Sharma,People & Culture,Policy review calendar,Amelia Brooks,Signed off,2026-05-09
+EMP024,Lisa Andersen,People & Culture,Policy review calendar,Amelia Brooks,Submitted,2026-05-15
+EMP024,Lisa Andersen,People & Culture,Active recruitment pipeline,Amelia Brooks,In Progress,
+EMP025,Marcus Zhang,Engineering,Codebase walkthrough,David Lim,Submitted,2026-05-11
+EMP025,Marcus Zhang,Engineering,Active bug and ticket list,David Lim,Pending,
+EMP025,Marcus Zhang,Engineering,CI/CD pipeline documentation,David Lim,Pending,
+EMP025,Marcus Zhang,Engineering,On-call runbook,David Lim,Pending,
+EMP026,Lucas Ibrahim,People & Culture,HR system access guide,Amelia Brooks,Signed off,2026-04-19
+EMP026,Lucas Ibrahim,People & Culture,Employee relations case notes,Amelia Brooks,Signed off,2026-04-18
+EMP026,Lucas Ibrahim,People & Culture,L&D programme schedule,Amelia Brooks,Signed off,2026-04-19
+EMP026,Lucas Ibrahim,People & Culture,Active recruitment pipeline,Amelia Brooks,Signed off,2026-04-18
+EMP027,Lucas Hassan,Legal,External counsel contacts,Claire Dupont,Submitted,2026-05-03
+EMP027,Lucas Hassan,Legal,Active contract register,Claire Dupont,In Progress,
+EMP027,Lucas Hassan,Legal,Entity and filing schedule,Claire Dupont,Pending,
+EMP027,Lucas Hassan,Legal,Pending legal matters summary,Claire Dupont,Pending,
+EMP028,Tariq Hassan,Product,Feature backlog summary,James Okafor,Signed off,2026-04-23
+EMP028,Tariq Hassan,Product,Stakeholder contact list,James Okafor,Signed off,2026-04-23
+EMP028,Tariq Hassan,Product,Ongoing sprint notes,James Okafor,Signed off,2026-04-23
+EMP028,Tariq Hassan,Product,Product roadmap status,James Okafor,Signed off,2026-04-22
+EMP029,James Zhang,Product,Product roadmap status,James Okafor,Submitted,2026-05-05
+EMP029,James Zhang,Product,Ongoing sprint notes,James Okafor,In Progress,
+EMP030,Oliver Johnson,Finance,Audit preparation notes,Robert Tan,Signed off,2026-04-28
+EMP030,Oliver Johnson,Finance,Vendor payment schedule,Robert Tan,Signed off,2026-04-25
+EMP030,Oliver Johnson,Finance,Budget tracker handover,Robert Tan,Signed off,2026-04-25
+EMP031,Ben Chen,Marketing,Brand guidelines summary,Priya Nair,Submitted,2026-05-08
+EMP031,Ben Chen,Marketing,Social media account access,Priya Nair,In Progress,
+EMP031,Ben Chen,Marketing,Ongoing campaign briefs,Priya Nair,Pending,
+EMP032,Nurul Wilson,Legal,External counsel contacts,Claire Dupont,Signed off,2026-05-10
+EMP032,Nurul Wilson,Legal,Pending legal matters summary,Claire Dupont,Pending,
+EMP032,Nurul Wilson,Legal,Compliance calendar,Claire Dupont,Pending,
+EMP032,Nurul Wilson,Legal,Entity and filing schedule,Claire Dupont,Pending,
+EMP033,Mei Kim,Product,Product roadmap status,James Okafor,Signed off,2026-05-09
+EMP033,Mei Kim,Product,Feature backlog summary,James Okafor,Signed off,2026-05-08
+EMP033,Mei Kim,Product,Stakeholder contact list,James Okafor,Signed off,2026-05-08
+EMP033,Mei Kim,Product,Ongoing sprint notes,James Okafor,Signed off,2026-05-08
+EMP034,Marcus Novak,Sales,Sales playbook,Michael Torres,Signed off,2026-04-16
+EMP034,Marcus Novak,Sales,Pipeline and forecast notes,Michael Torres,Signed off,2026-04-15
+EMP034,Marcus Novak,Sales,CRM data hygiene notes,Michael Torres,Signed off,2026-04-17
+EMP034,Marcus Novak,Sales,Active account list and status,Michael Torres,Signed off,2026-04-18
+EMP035,Zara Mensah,Engineering,Active bug and ticket list,David Lim,Submitted,2026-05-03
+EMP035,Zara Mensah,Engineering,System architecture overview,David Lim,In Progress,
+EMP035,Zara Mensah,Engineering,On-call runbook,David Lim,Pending,
+EMP036,Kofi Tan,Finance,Audit preparation notes,Robert Tan,Signed off,2026-04-12
+EMP036,Kofi Tan,Finance,Banking and approval contacts,Robert Tan,Signed off,2026-04-14
+EMP037,Kofi Tan,People & Culture,Active recruitment pipeline,Amelia Brooks,Submitted,2026-04-20
+EMP037,Kofi Tan,People & Culture,Employee relations case notes,Amelia Brooks,Submitted,
+EMP037,Kofi Tan,People & Culture,HR system access guide,Amelia Brooks,Pending,
+EMP038,Wei Johnson,People & Culture,L&D programme schedule,Amelia Brooks,Signed off,2026-04-26
+EMP038,Wei Johnson,People & Culture,HR system access guide,Amelia Brooks,Signed off,2026-04-27
+EMP038,Wei Johnson,People & Culture,Policy review calendar,Amelia Brooks,Signed off,2026-04-29
+EMP039,Sarah Lin,Operations,Process documentation,Fatima Al-Hassan,Signed off,2026-04-15
+EMP039,Sarah Lin,Operations,Supplier contact list,Fatima Al-Hassan,Signed off,2026-04-11
+EMP040,Priya Sharma,People & Culture,Policy review calendar,Amelia Brooks,Submitted,2026-05-09
+EMP040,Priya Sharma,People & Culture,Active recruitment pipeline,Amelia Brooks,Pending,
+EMP040,Priya Sharma,People & Culture,L&D programme schedule,Amelia Brooks,Pending,
+EMP040,Priya Sharma,People & Culture,Employee relations case notes,Amelia Brooks,Pending,

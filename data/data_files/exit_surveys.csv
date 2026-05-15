@@ -1,0 +1,111 @@
+employee_id,employee_name,department,departure_type,question,rating,open_text,sentiment,compound_score
+EMP004,Tariq Andersen,Engineering,Voluntary,How would you rate your overall experience at the company?,3,,,
+EMP004,Tariq Andersen,Engineering,Voluntary,How well did your manager support your development?,4,,,
+EMP004,Tariq Andersen,Engineering,Voluntary,How clearly was your role and expectations defined?,3,,,
+EMP004,Tariq Andersen,Engineering,Voluntary,How would you rate the company culture?,3,,,
+EMP004,Tariq Andersen,Engineering,Voluntary,How likely are you to recommend this company to others?,3,"It was a decent experience. Some things worked well, others could be improved.",Positive,0.6369
+EMP006,Ben Osei,Engineering,Mutual Agreement,How would you rate your overall experience at the company?,3,,,
+EMP006,Ben Osei,Engineering,Mutual Agreement,How well did your manager support your development?,4,,,
+EMP006,Ben Osei,Engineering,Mutual Agreement,How clearly was your role and expectations defined?,3,,,
+EMP006,Ben Osei,Engineering,Mutual Agreement,How would you rate the company culture?,3,,,
+EMP006,Ben Osei,Engineering,Mutual Agreement,How likely are you to recommend this company to others?,3,The role met my expectations for the most part. Nothing exceptional but fair.,Negative,-0.4121
+EMP007,Lisa Reid,Operations,Voluntary,How would you rate your overall experience at the company?,4,,,
+EMP007,Lisa Reid,Operations,Voluntary,How well did your manager support your development?,4,,,
+EMP007,Lisa Reid,Operations,Voluntary,How clearly was your role and expectations defined?,5,,,
+EMP007,Lisa Reid,Operations,Voluntary,How would you rate the company culture?,4,,,
+EMP007,Lisa Reid,Operations,Voluntary,How likely are you to recommend this company to others?,5,Wonderful colleagues and a clear sense of purpose. I will miss the team greatly.,Positive,0.6908
+EMP008,Emma Johnson,People & Culture,Voluntary,How would you rate your overall experience at the company?,4,,,
+EMP008,Emma Johnson,People & Culture,Voluntary,How well did your manager support your development?,4,,,
+EMP008,Emma Johnson,People & Culture,Voluntary,How clearly was your role and expectations defined?,5,,,
+EMP008,Emma Johnson,People & Culture,Voluntary,How would you rate the company culture?,5,,,
+EMP008,Emma Johnson,People & Culture,Voluntary,How likely are you to recommend this company to others?,5,I genuinely enjoyed my time here. The culture is strong and people care about each other.,Positive,0.8689
+EMP009,Aisha Tan,Operations,Mutual Agreement,How would you rate your overall experience at the company?,5,,,
+EMP009,Aisha Tan,Operations,Mutual Agreement,How well did your manager support your development?,4,,,
+EMP009,Aisha Tan,Operations,Mutual Agreement,How clearly was your role and expectations defined?,4,,,
+EMP009,Aisha Tan,Operations,Mutual Agreement,How would you rate the company culture?,5,,,
+EMP009,Aisha Tan,Operations,Mutual Agreement,How likely are you to recommend this company to others?,4,Brilliant experience overall. Management was transparent and I always felt valued.,Positive,0.7717
+EMP011,Sofia Wilson,People & Culture,Voluntary,How would you rate your overall experience at the company?,3,,,
+EMP011,Sofia Wilson,People & Culture,Voluntary,How well did your manager support your development?,2,,,
+EMP011,Sofia Wilson,People & Culture,Voluntary,How clearly was your role and expectations defined?,1,,,
+EMP011,Sofia Wilson,People & Culture,Voluntary,How would you rate the company culture?,3,,,
+EMP011,Sofia Wilson,People & Culture,Voluntary,How likely are you to recommend this company to others?,2,I felt undervalued throughout my time here. Recognition was lacking.,Neutral,0.0
+EMP012,Lucas Wilson,Operations,Voluntary,How would you rate your overall experience at the company?,5,,,
+EMP012,Lucas Wilson,Operations,Voluntary,How well did your manager support your development?,4,,,
+EMP012,Lucas Wilson,Operations,Voluntary,How clearly was your role and expectations defined?,5,,,
+EMP012,Lucas Wilson,Operations,Voluntary,How would you rate the company culture?,5,,,
+EMP012,Lucas Wilson,Operations,Voluntary,How likely are you to recommend this company to others?,4,"Great place to work, I learned a lot and the team was incredibly supportive.",Positive,0.7645
+EMP014,Priya Mensah,Operations,Voluntary,How would you rate your overall experience at the company?,4,,,
+EMP014,Priya Mensah,Operations,Voluntary,How well did your manager support your development?,5,,,
+EMP014,Priya Mensah,Operations,Voluntary,How clearly was your role and expectations defined?,4,,,
+EMP014,Priya Mensah,Operations,Voluntary,How would you rate the company culture?,4,,,
+EMP014,Priya Mensah,Operations,Voluntary,How likely are you to recommend this company to others?,4,The company truly invests in its people. I am leaving on great terms and would return.,Positive,0.7906
+EMP016,Ben Chen,Legal,Mutual Agreement,How would you rate your overall experience at the company?,5,,,
+EMP016,Ben Chen,Legal,Mutual Agreement,How well did your manager support your development?,4,,,
+EMP016,Ben Chen,Legal,Mutual Agreement,How clearly was your role and expectations defined?,5,,,
+EMP016,Ben Chen,Legal,Mutual Agreement,How would you rate the company culture?,5,,,
+EMP016,Ben Chen,Legal,Mutual Agreement,How likely are you to recommend this company to others?,4,Brilliant experience overall. Management was transparent and I always felt valued.,Positive,0.7717
+EMP018,Zara Osei,Sales,Mutual Agreement,How would you rate your overall experience at the company?,3,,,
+EMP018,Zara Osei,Sales,Mutual Agreement,How well did your manager support your development?,3,,,
+EMP018,Zara Osei,Sales,Mutual Agreement,How clearly was your role and expectations defined?,3,,,
+EMP018,Zara Osei,Sales,Mutual Agreement,How would you rate the company culture?,3,,,
+EMP018,Zara Osei,Sales,Mutual Agreement,How likely are you to recommend this company to others?,4,Average experience. The work was interesting but career growth was limited.,Positive,0.4404
+EMP019,Ravi Ng,People & Culture,Voluntary,How would you rate your overall experience at the company?,4,,,
+EMP019,Ravi Ng,People & Culture,Voluntary,How well did your manager support your development?,5,,,
+EMP019,Ravi Ng,People & Culture,Voluntary,How clearly was your role and expectations defined?,4,,,
+EMP019,Ravi Ng,People & Culture,Voluntary,How would you rate the company culture?,4,,,
+EMP019,Ravi Ng,People & Culture,Voluntary,How likely are you to recommend this company to others?,4,Brilliant experience overall. Management was transparent and I always felt valued.,Positive,0.7717
+EMP020,Sarah Osei,Operations,Voluntary,How would you rate your overall experience at the company?,4,,,
+EMP020,Sarah Osei,Operations,Voluntary,How well did your manager support your development?,4,,,
+EMP020,Sarah Osei,Operations,Voluntary,How clearly was your role and expectations defined?,5,,,
+EMP020,Sarah Osei,Operations,Voluntary,How would you rate the company culture?,4,,,
+EMP020,Sarah Osei,Operations,Voluntary,How likely are you to recommend this company to others?,5,The company truly invests in its people. I am leaving on great terms and would return.,Positive,0.7906
+EMP022,Aisha Mensah,Legal,Voluntary,How would you rate your overall experience at the company?,3,,,
+EMP022,Aisha Mensah,Legal,Voluntary,How well did your manager support your development?,2,,,
+EMP022,Aisha Mensah,Legal,Voluntary,How clearly was your role and expectations defined?,1,,,
+EMP022,Aisha Mensah,Legal,Voluntary,How would you rate the company culture?,2,,,
+EMP022,Aisha Mensah,Legal,Voluntary,How likely are you to recommend this company to others?,1,The culture did not match what was promised during recruitment. Disappointed.,Negative,-0.1531
+EMP023,Emma Sharma,People & Culture,Involuntary,How would you rate your overall experience at the company?,4,,,
+EMP023,Emma Sharma,People & Culture,Involuntary,How well did your manager support your development?,4,,,
+EMP023,Emma Sharma,People & Culture,Involuntary,How clearly was your role and expectations defined?,4,,,
+EMP023,Emma Sharma,People & Culture,Involuntary,How would you rate the company culture?,4,,,
+EMP023,Emma Sharma,People & Culture,Involuntary,How likely are you to recommend this company to others?,3,The role met my expectations for the most part. Nothing exceptional but fair.,Negative,-0.4121
+EMP026,Lucas Ibrahim,People & Culture,Mutual Agreement,How would you rate your overall experience at the company?,3,,,
+EMP026,Lucas Ibrahim,People & Culture,Mutual Agreement,How well did your manager support your development?,3,,,
+EMP026,Lucas Ibrahim,People & Culture,Mutual Agreement,How clearly was your role and expectations defined?,3,,,
+EMP026,Lucas Ibrahim,People & Culture,Mutual Agreement,How would you rate the company culture?,3,,,
+EMP026,Lucas Ibrahim,People & Culture,Mutual Agreement,How likely are you to recommend this company to others?,3,Average experience. The work was interesting but career growth was limited.,Positive,0.4404
+EMP028,Tariq Hassan,Product,Voluntary,How would you rate your overall experience at the company?,4,,,
+EMP028,Tariq Hassan,Product,Voluntary,How well did your manager support your development?,4,,,
+EMP028,Tariq Hassan,Product,Voluntary,How clearly was your role and expectations defined?,4,,,
+EMP028,Tariq Hassan,Product,Voluntary,How would you rate the company culture?,4,,,
+EMP028,Tariq Hassan,Product,Voluntary,How likely are you to recommend this company to others?,3,"It was a decent experience. Some things worked well, others could be improved.",Positive,0.6369
+EMP030,Oliver Johnson,Finance,Voluntary,How would you rate your overall experience at the company?,4,,,
+EMP030,Oliver Johnson,Finance,Voluntary,How well did your manager support your development?,4,,,
+EMP030,Oliver Johnson,Finance,Voluntary,How clearly was your role and expectations defined?,3,,,
+EMP030,Oliver Johnson,Finance,Voluntary,How would you rate the company culture?,4,,,
+EMP030,Oliver Johnson,Finance,Voluntary,How likely are you to recommend this company to others?,4,The role met my expectations for the most part. Nothing exceptional but fair.,Negative,-0.4121
+EMP033,Mei Kim,Product,Voluntary,How would you rate your overall experience at the company?,5,,,
+EMP033,Mei Kim,Product,Voluntary,How well did your manager support your development?,4,,,
+EMP033,Mei Kim,Product,Voluntary,How clearly was your role and expectations defined?,4,,,
+EMP033,Mei Kim,Product,Voluntary,How would you rate the company culture?,5,,,
+EMP033,Mei Kim,Product,Voluntary,How likely are you to recommend this company to others?,4,I genuinely enjoyed my time here. The culture is strong and people care about each other.,Positive,0.8689
+EMP034,Marcus Novak,Sales,Voluntary,How would you rate your overall experience at the company?,4,,,
+EMP034,Marcus Novak,Sales,Voluntary,How well did your manager support your development?,4,,,
+EMP034,Marcus Novak,Sales,Voluntary,How clearly was your role and expectations defined?,5,,,
+EMP034,Marcus Novak,Sales,Voluntary,How would you rate the company culture?,5,,,
+EMP034,Marcus Novak,Sales,Voluntary,How likely are you to recommend this company to others?,4,"Great place to work, I learned a lot and the team was incredibly supportive.",Positive,0.7645
+EMP036,Kofi Tan,Finance,Involuntary,How would you rate your overall experience at the company?,2,,,
+EMP036,Kofi Tan,Finance,Involuntary,How well did your manager support your development?,1,,,
+EMP036,Kofi Tan,Finance,Involuntary,How clearly was your role and expectations defined?,1,,,
+EMP036,Kofi Tan,Finance,Involuntary,How would you rate the company culture?,1,,,
+EMP036,Kofi Tan,Finance,Involuntary,How likely are you to recommend this company to others?,3,Poor communication from leadership and lack of clarity on career progression.,Negative,-0.4019
+EMP038,Wei Johnson,People & Culture,Voluntary,How would you rate your overall experience at the company?,5,,,
+EMP038,Wei Johnson,People & Culture,Voluntary,How well did your manager support your development?,4,,,
+EMP038,Wei Johnson,People & Culture,Voluntary,How clearly was your role and expectations defined?,4,,,
+EMP038,Wei Johnson,People & Culture,Voluntary,How would you rate the company culture?,4,,,
+EMP038,Wei Johnson,People & Culture,Voluntary,How likely are you to recommend this company to others?,5,Wonderful colleagues and a clear sense of purpose. I will miss the team greatly.,Positive,0.6908
+EMP039,Sarah Lin,Operations,Voluntary,How would you rate your overall experience at the company?,5,,,
+EMP039,Sarah Lin,Operations,Voluntary,How well did your manager support your development?,4,,,
+EMP039,Sarah Lin,Operations,Voluntary,How clearly was your role and expectations defined?,4,,,
+EMP039,Sarah Lin,Operations,Voluntary,How would you rate the company culture?,5,,,
+EMP039,Sarah Lin,Operations,Voluntary,How likely are you to recommend this company to others?,5,Brilliant experience overall. Management was transparent and I always felt valued.,Positive,0.7717
