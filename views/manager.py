@@ -1,6 +1,6 @@
 # ── views/manager.py ──────────────────────────────────────────
 # Mitma Offboarding App
-# Manager view — oversight and handover management.
+# Manager view — Section 1 unlocked, Sections 2-5 locked in Ver 0.
 # Called by app.py via show_manager_view()
 # ─────────────────────────────────────────────────────────────
 
@@ -8,43 +8,13 @@ import streamlit as st
 from datetime import datetime, timedelta
 
 
-def show_manager_view(employees, tasks_master, task_completion, knowledge, exit_surveys):
+def show_manager_view(employees, tasks_master, task_completion, knowledge, exit_surveys, logo_src):
 
-    # ── Sidebar ───────────────────────────────────────────────
+    # ── Sidebar — sections only ───────────────────────────────
     with st.sidebar:
-        st.markdown("### 👔 Manager View")
+        st.markdown("### 👔 MANAGER VIEW")
         st.markdown("---")
-
-        # Get unique managers from active employees only
-        active_employees = employees[employees["status"] == "Active"]
-        manager_names    = sorted(active_employees["manager"].unique().tolist())
-
-        selected_manager = st.selectbox(
-            "Select manager",
-            options=manager_names,
-            key="mgr_selector"
-        )
-
-        # Get all active leavers under this manager
-        mgr_team = active_employees[active_employees["manager"] == selected_manager]
-
-        st.markdown("---")
-        st.markdown(f"**Active leavers:** {len(mgr_team)}")
-
-        if mgr_team.empty:
-            st.info("No active leavers in your team.")
-            return
-
-        # Select which team member to view
-        selected_leaver = st.selectbox(
-            "Select team member",
-            options=mgr_team["name"].tolist(),
-            key="mgr_leaver_selector"
-        )
-
-        # ── Section navigation ────────────────────────────────
-        st.markdown("---")
-        st.markdown("### 📍 Manager Sections")
+        st.markdown("### 📍 MANAGER SECTIONS")
 
         if "mgr_section" not in st.session_state:
             st.session_state.mgr_section = "1. Overview"
@@ -54,6 +24,7 @@ def show_manager_view(employees, tasks_master, task_completion, knowledge, exit_
             "2. Offboarding Checklist",
             "3. Knowledge Transfer",
             "4. Handover Plan",
+            "5. Team Dashboard",
         ]
 
         for s in mgr_sections:
@@ -69,350 +40,366 @@ def show_manager_view(employees, tasks_master, task_completion, knowledge, exit_
                     st.session_state.mgr_section = s
                     st.rerun()
 
-    # ── Get selected leaver record ─────────────────────────────
-    # All sections below use this employee record
-    mgr_emp     = mgr_team[mgr_team["name"] == selected_leaver].iloc[0]
-    resign_date = datetime.strptime(mgr_emp["resignation_date"], "%Y-%m-%d")
-    last_day    = datetime.strptime(mgr_emp["last_day"], "%Y-%m-%d")
-    days_left   = (last_day - datetime.today()).days
+    # ── Main page header ──────────────────────────────────────
+    st.markdown("### 👔 MANAGER VIEW — Offboarding Oversight")
+    st.markdown("---")
 
-    # ── Reset to section 1 when leaver changes ────────────────
+    # ── Manager selector ──────────────────────────────────────
+    active_employees = employees[employees["status"] == "Active"]
+    manager_names    = sorted(active_employees["manager"].unique().tolist())
+
+    st.markdown(
+        '<p style="font-size:16px;font-weight:500;color:#000000;margin-bottom:4px;">Select manager</p>',
+        unsafe_allow_html=True
+    )
+    selected_manager = st.selectbox(
+        "",
+        options=manager_names,
+        key="mgr_selector",
+        label_visibility="collapsed"
+    )
+
+    # ── Calculate team immediately after manager selected ─────
+    mgr_team = active_employees[active_employees["manager"] == selected_manager]
+
+    # ── Reset when manager changes ────────────────────────────
+    if st.session_state.get("last_selected_manager") != selected_manager:
+        st.session_state.mgr_section           = "1. Overview"
+        st.session_state.last_selected_manager = selected_manager
+        if "mgr_leaver_selector" in st.session_state:
+            del st.session_state["mgr_leaver_selector"]
+        st.rerun()
+
+    if mgr_team.empty:
+        st.info("No active leavers in this manager's team.")
+        return
+
+    st.markdown(f"**Active leavers:** {len(mgr_team)}")
+    st.markdown(" ")
+
+    # ── Leaver selector ───────────────────────────────────────
+    st.markdown(
+        '<p style="font-size:16px;font-weight:500;color:#000000;margin-bottom:4px;">Select team member</p>',
+        unsafe_allow_html=True
+    )
+    
+    leaver_options = mgr_team["name"].tolist()
+    
+    # Default to first leaver in the list when manager changes
+    default_index = 0
+    
+    selected_leaver = st.selectbox(
+        "",
+        options=leaver_options,
+        index=default_index,
+        key=f"mgr_leaver_selector_{selected_manager}",
+        label_visibility="collapsed"
+    )
+
+    # ── Reset when leaver changes ─────────────────────────────
     if st.session_state.get("last_selected_leaver") != selected_leaver:
         st.session_state.mgr_section          = "1. Overview"
         st.session_state.last_selected_leaver = selected_leaver
         st.rerun()
 
-    # ── Main page header ──────────────────────────────────────
-    st.markdown(f"### 👔 Managing Exit For Employee — {mgr_emp['name']}")
-    st.markdown(
-        f"**Role:** {mgr_emp['role']} &nbsp;|&nbsp; "
-        f"**Department:** {mgr_emp['department']} &nbsp;|&nbsp; "
-        f"**Last day:** {mgr_emp['last_day']} &nbsp;|&nbsp; "
-        f"**Days remaining:** {days_left} days",
-        unsafe_allow_html=True
-    )
     st.markdown("---")
 
-   # ═════════════════════════════════════════════════════════
-    # SECTION 1 — OVERVIEW
+    # ── Get selected leaver record ────────────────────────────
+    mgr_emp     = mgr_team[mgr_team["name"] == selected_leaver].iloc[0]
+    resign_date = datetime.strptime(mgr_emp["resignation_date"], "%Y-%m-%d")
+    last_day    = datetime.strptime(mgr_emp["last_day"], "%Y-%m-%d")
+    days_left   = (last_day - datetime.today()).days
+
+    # ── Employee header cards ─────────────────────────────────
+    st.markdown(f"### Managing Exit For — {mgr_emp['name']}")
+
+    header_values = [
+        {"icon": "💼", "title": "Role",          "desc": mgr_emp["role"]},
+        {"icon": "🏢", "title": "Department",     "desc": mgr_emp["department"]},
+        {"icon": "📅", "title": "Last Day",       "desc": mgr_emp["last_day"]},
+        {"icon": "⏱",  "title": "Days Remaining", "desc": f"{days_left} days"},
+    ]
+
+    cols = st.columns(4)
+    for col, value in zip(cols, header_values):
+        with col:
+            st.markdown(
+                f"""
+                <div style="
+                    background:#ffffff;
+                    border:1px solid #f0d9cc;
+                    border-radius:12px;
+                    padding:20px;
+                    text-align:center;
+                ">
+                    <div style="font-size:28px;margin-bottom:12px;">{value['icon']}</div>
+                    <div style="font-weight:700;font-size:16px;color:#000000;
+                                margin-bottom:8px;">{value['title']}</div>
+                    <div style="font-size:15px;color:#9a8880;">{value['desc']}</div>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+
+    st.markdown(" ")
+    st.markdown("---")
+
+    # ── Locked notice helper ──────────────────────────────────
+    def show_locked(current_section):
+        st.markdown(
+            f"""
+            <div style="
+                background:#ffffff;
+                border:1px solid #f0d9cc;
+                border-radius:12px;
+                padding:40px 36px;
+                text-align:center;
+                margin-bottom:24px;
+            ">
+                <div style="font-size:48px;margin-bottom:16px;">🔒</div>
+                <div style="font-size:22px;font-weight:700;color:#000000;margin-bottom:12px;">
+                    Full Version Only
+                </div>
+                <div style="font-size:15px;color:#505050;line-height:1.8;margin-bottom:8px;">
+                    The Manager view is only available in the Full Version of the Mitma Offboarding App.
+                </div>
+                <div style="font-size:15px;color:#505050;line-height:1.8;margin-bottom:16px;">
+                    Contact Mitma Consulting to get access to the Full Version.
+                </div>
+                <a href="https://mitmaconsulting.framer.ai" target="_blank">
+                    <img src="{logo_src}" height="48" alt="Mitma Consulting"/>
+                </a>
+                <div style="display:flex;justify-content:center;gap:12px;
+                            flex-wrap:wrap;margin-top:24px;">
+                    <a href="https://mitmaconsulting.framer.ai/contact" target="_blank" style="
+                        padding:10px 24px;
+                        background:#f49052;
+                        color:white;
+                        border-radius:8px;
+                        text-decoration:none;
+                        font-size:13px;
+                        font-weight:600;
+                    ">Contact Mitma Consulting →</a>
+                    <a href="https://www.linkedin.com/in/mithirendra-maniam/" target="_blank" style="
+                        padding:10px 24px;
+                        background:#f49052;
+                        color:white;
+                        border-radius:8px;
+                        text-decoration:none;
+                        font-size:13px;
+                        font-weight:600;
+                    ">Connect on LinkedIn →</a>
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
+        # Next section button
+        next_sections = {
+            "2. Offboarding Checklist": "3. Knowledge Transfer",
+            "3. Knowledge Transfer":    "4. Handover Plan",
+            "4. Handover Plan":         "5. Team Dashboard",
+            "5. Team Dashboard":        None
+        }
+
+        next_s = next_sections.get(current_section)
+        if next_s:
+            col1, col2 = st.columns([6, 2])
+            with col2:
+                if st.button(
+                    f"Next: {next_s.split('. ')[1]} →",
+                    key=f"mgr_next_{current_section}",
+                    use_container_width=True
+                ):
+                    st.session_state.mgr_section = next_s
+                    st.rerun()
+
+    # ═════════════════════════════════════════════════════════
+    # SECTION 1 — OVERVIEW (unlocked)
     # ═════════════════════════════════════════════════════════
     if st.session_state.mgr_section == "1. Overview":
         st.markdown("### SECTION 1. OVERVIEW")
 
-        # ── Key metrics ───────────────────────────────────────
-        # Summary of this leaver's offboarding progress at a glance
-        emp_task_completion = task_completion[
-            task_completion["employee_id"] == mgr_emp["employee_id"]
-        ]
-        total_tasks     = len(emp_task_completion)
-        completed_tasks = len(emp_task_completion[emp_task_completion["status"] == "Complete"])
-        pending_tasks   = total_tasks - completed_tasks
-        progress_pct    = int((completed_tasks / total_tasks) * 100) if total_tasks > 0 else 0
+        with st.container(border=True):
 
-        col1, col2, col3, col4 = st.columns(4)
-        with col1:
-            st.metric("Days Remaining", f"{days_left} days")
-        with col2:
-            st.metric("Tasks Completed", f"{completed_tasks} of {total_tasks}")
-        with col3:
-            st.metric("Tasks Pending", pending_tasks)
-        with col4:
-            st.metric("Overall Progress", f"{progress_pct}%")
+            emp_task_completion = task_completion[
+                task_completion["employee_id"] == mgr_emp["employee_id"]
+            ]
+            total_tasks     = len(emp_task_completion)
+            completed_tasks = len(emp_task_completion[emp_task_completion["status"] == "Complete"])
+            pending_tasks   = total_tasks - completed_tasks
+            progress_pct    = int((completed_tasks / total_tasks) * 100) if total_tasks > 0 else 0
 
-        # Overall progress bar
-        st.progress(progress_pct / 100, text=f"{progress_pct}% complete")
-        st.markdown(" ")
-
-        # ── Journey status ────────────────────────────────────
-        # Shows which stage of the offboarding this employee is in
-        st.markdown("#### Current Stage")
-
-        journey_stages = [
-            {"stage": "Resignation Accepted",       "tasks": []},
-            {"stage": "Knowledge Transfer",          "tasks": ["T001", "T002", "T003"]},
-            {"stage": "Exit Interview & Documents",  "tasks": ["T007", "T008"]},
-            {"stage": "Asset Return",                "tasks": ["T004", "T005", "T006"]},
-            {"stage": "Farewell & Departure",        "tasks": ["T009"]},
-        ]
-
-        completed_task_ids = emp_task_completion[
-            emp_task_completion["status"] == "Complete"
-        ]["task_id"].tolist()
-
-        for i, stage in enumerate(journey_stages):
-            if not stage["tasks"]:
-                stage_status = "complete"
-            elif all(t in completed_task_ids for t in stage["tasks"]):
-                stage_status = "complete"
-            elif any(t in completed_task_ids for t in stage["tasks"]):
-                stage_status = "active"
+            # Days remaining colour
+            if days_left <= 3:
+                days_colour = "#c62828"
+            elif days_left <= 7:
+                days_colour = "#e65100"
             else:
-                stage_status = "upcoming"
-
-            status_badge = {
-                "complete": '<span class="status-complete">✅ Complete</span>',
-                "active":   '<span class="status-inprogress">🔄 In Progress</span>',
-                "upcoming": '<span class="status-pending">⏳ Upcoming</span>'
-            }[stage_status]
+                days_colour = "#2e7d32"
 
             st.markdown(
-                f"**Stage {i+1}: {stage['stage']}** &nbsp;|&nbsp; {status_badge}",
+                f'<div style="background-color:{days_colour}; color:white; '
+                f'padding:14px 20px; border-radius:12px; font-size:20px; '
+                f'font-weight:600; margin-bottom:16px; display:inline-block;">'
+                f'⏱ {days_left} days remaining — {mgr_emp["name"]}</div>',
                 unsafe_allow_html=True
             )
 
-        # ── Alerts ────────────────────────────────────────────
-        # Flags anything the manager needs to action urgently
-        st.markdown(" ")
-        st.markdown("#### ⚠️ Alerts")
-
-        alerts = []
-
-        # Flag if days remaining is low and tasks are still pending
-        if days_left <= 7 and pending_tasks > 0:
-            alerts.append(f"🔴 {pending_tasks} tasks still pending with {days_left} days remaining.")
-
-        # Flag if knowledge transfer is not complete
-        kt_docs    = knowledge[knowledge["employee_id"] == mgr_emp["employee_id"]]
-        kt_pending = len(kt_docs[kt_docs["status"].isin(["Pending", "In Progress"])])
-        if kt_pending > 0:
-            alerts.append(f"🟠 {kt_pending} knowledge transfer documents not yet signed off.")
-
-        # Flag if access revocation task is not complete
-        access_task = task_completion[
-            (task_completion["employee_id"] == mgr_emp["employee_id"]) &
-            (task_completion["task_id"] == "T010")
-        ]
-        if access_task.empty or access_task.iloc[0]["status"] != "Complete":
-            alerts.append("🔴 IT access revocation request not yet submitted.")
-
-        if alerts:
-            for alert in alerts:
-                st.warning(alert)
-        else:
-            st.success("✅ No urgent actions required.")
-    
-    # ═════════════════════════════════════════════════════════
-    # SECTION 2 — OFFBOARDING CHECKLIST
-    # ═════════════════════════════════════════════════════════
-    if st.session_state.mgr_section == "2. Offboarding Checklist":
-        st.markdown("### SECTION 2. OFFBOARDING CHECKLIST")
-
-        # Get all manager tasks from the master list
-        mgr_tasks = tasks_master[tasks_master["assigned_to"] == "Manager"]
-
-        # Get completion status for this employee
-        mgr_task_completion = task_completion[
-            task_completion["employee_id"] == mgr_emp["employee_id"]
-        ]
-
-        # Merge task details with completion status
-        checklist = mgr_tasks.merge(
-            mgr_task_completion[["task_id", "status", "completion_date"]],
-            on="task_id",
-            how="left"
-        )
-        checklist["status"] = checklist["status"].fillna("Pending")
-
-        # ── Summary metrics ───────────────────────────────────
-        total    = len(checklist)
-        complete = len(checklist[checklist["status"] == "Complete"])
-        pending  = total - complete
-
-        col1, col2, col3 = st.columns(3)
-        with col1:
-            st.metric("Total Tasks", total)
-        with col2:
-            st.metric("Completed", complete)
-        with col3:
-            st.metric("Pending", pending)
-
-        # Progress bar
-        progress = complete / total if total > 0 else 0
-        st.progress(progress, text=f"{int(progress * 100)}% complete")
-        st.markdown(" ")
-
-        # ── Checklist by category ─────────────────────────────
-        # Group tasks by category so manager can see them clearly
-        categories = checklist["category"].unique().tolist()
-
-        for category in categories:
-            st.markdown(f"**{category}**")
-
-            cat_tasks = checklist[checklist["category"] == category]
-
-            for _, task in cat_tasks.iterrows():
-                done     = task["status"] == "Complete"
-                icon     = "✅" if done else "⬜"
-                date_str = f" — Done {task['completion_date']}" if done and task["completion_date"] else ""
-
-                st.markdown(
-                    f"{icon} {task['description']}{date_str}"
-                )
-
             st.markdown(" ")
-    
-    # ═════════════════════════════════════════════════════════
-    # SECTION 3 — KNOWLEDGE TRANSFER
-    # ═════════════════════════════════════════════════════════
-    if st.session_state.mgr_section == "3. Knowledge Transfer":
-        st.markdown("### SECTION 3. KNOWLEDGE TRANSFER")
-
-        # Get knowledge transfer documents for this employee
-        mgr_kt = knowledge[knowledge["employee_id"] == mgr_emp["employee_id"]]
-
-        if mgr_kt.empty:
-            st.info("No knowledge transfer documents assigned yet.")
-        else:
-            # ── Summary metrics ───────────────────────────────
-            total_docs  = len(mgr_kt)
-            signed_off  = len(mgr_kt[mgr_kt["status"] == "Signed off"])
-            submitted   = len(mgr_kt[mgr_kt["status"] == "Submitted"])
-            in_progress = len(mgr_kt[mgr_kt["status"] == "In Progress"])
-            pending     = len(mgr_kt[mgr_kt["status"] == "Pending"])
 
             col1, col2, col3, col4 = st.columns(4)
             with col1:
-                st.metric("Total Documents", total_docs)
+                st.metric("Overall Progress",  f"{progress_pct}%")
             with col2:
-                st.metric("Signed Off", signed_off)
+                st.metric("Tasks Completed",   f"{completed_tasks} of {total_tasks}")
             with col3:
-                st.metric("Submitted", submitted)
+                st.metric("Tasks Pending",     pending_tasks)
             with col4:
-                st.metric("Pending", pending)
+                st.metric("Departure Type",    mgr_emp["departure_type"])
 
-            # Status badge
-            kt_status = "complete" if signed_off == total_docs else "active" if submitted > 0 or in_progress > 0 else "upcoming"
-            kt_badge = {
-                "complete": '<span class="status-complete">✅ Complete</span>',
-                "active":   '<span class="status-inprogress">🔄 In Progress</span>',
-                "upcoming": '<span class="status-pending">⏳ Upcoming</span>'
-            }[kt_status]
-            st.markdown(kt_badge, unsafe_allow_html=True)
-
-            # Progress bar
-            progress = (signed_off + submitted) / total_docs if total_docs > 0 else 0
-            st.progress(progress, text=f"{int(progress * 100)}% submitted or signed off")
+            st.progress(progress_pct / 100, text=f"{progress_pct}% complete")
             st.markdown(" ")
 
-            # ── Document list ─────────────────────────────────
-            # Manager can see each document and sign off status
-            st.markdown("#### Documents to Review and Sign Off")
+            # ── Stage status ──────────────────────────────────
+            st.markdown("#### 📍 Journey Stage Status")
 
-            for _, doc in mgr_kt.iterrows():
-                status_icon = {
-                    "Signed off":  "✅",
-                    "Submitted":   "📨",
-                    "In Progress": "🔄",
-                    "Pending":     "⬜"
-                }.get(doc["status"], "⬜")
+            completed_task_ids = emp_task_completion[
+                emp_task_completion["status"] == "Complete"
+            ]["task_id"].tolist()
+
+            journey_stages = [
+                {"stage": "Resignation Accepted",      "tasks": []},
+                {"stage": "Knowledge Transfer",         "tasks": ["T001", "T002", "T003"]},
+                {"stage": "Exit Interview & Documents", "tasks": ["T007", "T008"]},
+                {"stage": "Asset Return",               "tasks": ["T004", "T005", "T006"]},
+                {"stage": "Farewell & Departure",       "tasks": ["T009"]},
+            ]
+
+            for i, stage in enumerate(journey_stages):
+
+                if not stage["tasks"]:
+                    stage_status = "complete"
+                elif all(t in completed_task_ids for t in stage["tasks"]):
+                    stage_status = "complete"
+                elif any(t in completed_task_ids for t in stage["tasks"]):
+                    stage_status = "active"
+                else:
+                    stage_status = "upcoming"
+
+                if stage_status == "complete":
+                    bg_colour     = "#e8f5e9"
+                    border_colour = "#2e7d32"
+                    badge         = "✅ Complete"
+                    badge_colour  = "#2e7d32"
+                elif stage_status == "active":
+                    bg_colour     = "#fff3e0"
+                    border_colour = "#e65100"
+                    badge         = "🔄 In Progress"
+                    badge_colour  = "#e65100"
+                else:
+                    bg_colour     = "#fdecea"
+                    border_colour = "#c62828"
+                    badge         = "⏳ Upcoming"
+                    badge_colour  = "#c62828"
 
                 st.markdown(
-                    f"{status_icon} **{doc['document_title']}** "
-                    f"&nbsp;|&nbsp; Status: {doc['status']} "
-                    f"&nbsp;|&nbsp; From: {doc['employee_name']}",
+                    f"""
+                    <div style="
+                        background:{bg_colour};
+                        border-left:4px solid {border_colour};
+                        border-radius:10px;
+                        padding:12px 16px;
+                        margin-bottom:8px;
+                    ">
+                        <div style="font-weight:600;font-size:15px;color:#000000;">
+                            Stage {i+1}: {stage['stage']}
+                        </div>
+                        <div style="font-size:13px;font-weight:500;
+                                    color:{badge_colour};margin-top:4px;">
+                            {badge}
+                        </div>
+                    </div>
+                    """,
                     unsafe_allow_html=True
                 )
 
+            # ── Alerts ────────────────────────────────────────
             st.markdown(" ")
+            st.markdown("#### ⚠️ Pending Actions")
 
-            # ── Manager action ────────────────────────────────
-            # Reminder to the manager to sign off pending documents
-            if signed_off < total_docs:
-                st.warning(
-                    f"{total_docs - signed_off} document(s) still need your sign off. "
-                    f"Review and confirm with {mgr_emp['name']} before their last day."
-                )
+            alerts = []
+
+            if days_left <= 7 and pending_tasks > 0:
+                alerts.append(f"🔴 {pending_tasks} tasks still pending with only {days_left} days remaining.")
+
+            kt_docs    = knowledge[knowledge["employee_id"] == mgr_emp["employee_id"]]
+            kt_pending = len(kt_docs[kt_docs["status"].isin(["Pending", "In Progress"])])
+            if kt_pending > 0:
+                alerts.append(f"🟠 {kt_pending} knowledge transfer document(s) not yet signed off.")
+
+            access_task = task_completion[
+                (task_completion["employee_id"] == mgr_emp["employee_id"]) &
+                (task_completion["task_id"] == "T010")
+            ]
+            if access_task.empty or access_task.iloc[0]["status"] != "Complete":
+                alerts.append("🔴 IT access revocation request not yet submitted.")
+
+            exit_task = task_completion[
+                (task_completion["employee_id"] == mgr_emp["employee_id"]) &
+                (task_completion["task_id"] == "T011")
+            ]
+            if exit_task.empty or exit_task.iloc[0]["status"] != "Complete":
+                alerts.append("🟠 Exit interview notes not yet submitted to HR.")
+
+            if not st.session_state.get("team_notified", False):
+                alerts.append("🟠 Team has not been notified of this departure yet.")
+
+            if alerts:
+                for alert in alerts:
+                    st.markdown(
+                        f"""
+                        <div style="
+                            background:#fdecea;
+                            border-left:4px solid #c62828;
+                            border-radius:8px;
+                            padding:10px 16px;
+                            margin-bottom:6px;
+                            font-size:15px;
+                            color:#505050;
+                        ">
+                            {alert}
+                        </div>
+                        """,
+                        unsafe_allow_html=True
+                    )
             else:
-                st.success("All knowledge transfer documents signed off.")
-    
+                st.success("✅ No pending actions. Offboarding is on track.")
+
+        # ── Next section button ───────────────────────────────
+        st.markdown(" ")
+        col1, col2 = st.columns([6, 2])
+        with col2:
+            if st.button("Next: Offboarding Checklist →", key="mgr_next_s1", use_container_width=True):
+                st.session_state.mgr_section = "2. Offboarding Checklist"
+                st.rerun()
+
     # ═════════════════════════════════════════════════════════
-    # SECTION 4 — HANDOVER PLAN
+    # SECTIONS 2-5 — LOCKED
     # ═════════════════════════════════════════════════════════
+    if st.session_state.mgr_section == "2. Offboarding Checklist":
+        st.markdown(f"### SECTION 2. OFFBOARDING CHECKLIST — {mgr_emp['name']}")
+        show_locked("2. Offboarding Checklist")
+
+    if st.session_state.mgr_section == "3. Knowledge Transfer":
+        st.markdown(f"### SECTION 3. KNOWLEDGE TRANSFER — {mgr_emp['name']}")
+        show_locked("3. Knowledge Transfer")
+
     if st.session_state.mgr_section == "4. Handover Plan":
-        st.markdown("### SECTION 4. HANDOVER PLAN")
+        st.markdown(f"### SECTION 4. HANDOVER PLAN — {mgr_emp['name']}")
+        show_locked("4. Handover Plan")
 
-        # ── Replacement planning ──────────────────────────────
-        # Tracks whether a replacement has been triggered
-        st.markdown("#### 🔄 Replacement Planning")
-
-        if "replacement_triggered" not in st.session_state:
-            st.session_state.replacement_triggered = False
-
-        if st.session_state.replacement_triggered:
-            st.success("✅ Replacement hiring workflow triggered. HR has been notified.")
-        else:
-            st.warning("Replacement hiring has not been triggered yet.")
-            if st.button("🚀 Trigger Replacement Hiring Workflow"):
-                st.session_state.replacement_triggered = True
-                st.rerun()
-
-        st.markdown(" ")
-
-        # ── Responsibility handover ───────────────────────────
-        # Who takes over each of the departing employee's responsibilities
-        st.markdown("#### 👥 Responsibility Handover")
-        st.markdown(
-            f"Define who takes over **{mgr_emp['name']}'s** responsibilities "
-            f"after their last day on **{mgr_emp['last_day']}**."
-        )
-
-        # Synthetic handover responsibilities — role based
-        handover_items = [
-            {"responsibility": "Day to day team coordination",     "handover_to": "TBD", "status": "⬜ Not assigned"},
-            {"responsibility": "Stakeholder communications",        "handover_to": "TBD", "status": "⬜ Not assigned"},
-            {"responsibility": "Ongoing project oversight",         "handover_to": "TBD", "status": "⬜ Not assigned"},
-            {"responsibility": "Client or vendor relationships",    "handover_to": "TBD", "status": "⬜ Not assigned"},
-            {"responsibility": "Reporting and performance reviews", "handover_to": "TBD", "status": "⬜ Not assigned"},
-        ]
-
-        for item in handover_items:
-            col1, col2, col3 = st.columns([3, 2, 2])
-            with col1:
-                st.markdown(f"**{item['responsibility']}**")
-            with col2:
-                st.markdown(f"Handover to: {item['handover_to']}")
-            with col3:
-                st.markdown(item["status"])
-
-        st.markdown(" ")
-        st.caption("Handover assignments will be editable in the full build.")
-
-        # ── Team communication ────────────────────────────────
-        # Reminds manager to communicate the departure to the team
-        st.markdown("---")
-        st.markdown("#### 📢 Team Communication")
-
-        if "team_notified" not in st.session_state:
-            st.session_state.team_notified = False
-
-        if st.session_state.team_notified:
-            st.success(f"✅ Team has been notified of {mgr_emp['name']}'s departure.")
-        else:
-            st.warning("Your team has not been notified of this departure yet.")
-            st.markdown(
-                "It is important to communicate the departure clearly and respectfully. "
-                "Let your team know the last day, what changes to expect, and who to contact."
-            )
-            if st.button("✅ Mark Team as Notified"):
-                st.session_state.team_notified = True
-                st.rerun()
-
-        # ── Exit interview ────────────────────────────────────
-        # Reminds manager to schedule and complete the exit interview
-        st.markdown("---")
-        st.markdown("#### 🗣️ Exit Interview")
-
-        if "exit_interview_done" not in st.session_state:
-            st.session_state.exit_interview_done = False
-
-        if st.session_state.exit_interview_done:
-            st.success("✅ Exit interview completed and notes submitted to HR.")
-        else:
-            st.warning("Exit interview has not been completed yet.")
-            st.markdown(
-                "Schedule the exit interview in the final week. "
-                "Submit your notes to HR after the session."
-            )
-            if st.button("✅ Mark Exit Interview as Complete"):
-                st.session_state.exit_interview_done = True
-                st.rerun()
+    if st.session_state.mgr_section == "5. Team Dashboard":
+        st.markdown(f"### SECTION 5. TEAM DASHBOARD — {mgr_emp['name']}")
+        show_locked("5. Team Dashboard")
