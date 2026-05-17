@@ -242,10 +242,6 @@ st.markdown("""
             color: white !important;
         }
             
-        /* Selectbox dropdown background */
-        .stSelectbox > div > div {
-            background-color: #ffece1 !important;
-        }
         
     </style>
 """, unsafe_allow_html=True)
