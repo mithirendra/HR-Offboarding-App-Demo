@@ -14,7 +14,7 @@ from views.hr       import show_hr_view
 
 # ── Page configuration ────────────────────────────────────────
 st.set_page_config(
-    page_title="Mitma Offboarding App | Mitma Consulting",
+    page_title="Mitma Offboarding App - Demo Version | Mitma Consulting",
     page_icon="assets/mitma_favicon.png",
     layout="wide",
     initial_sidebar_state="expanded",
