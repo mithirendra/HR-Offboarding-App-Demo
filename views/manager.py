@@ -42,6 +42,23 @@ def show_manager_view(employees, tasks_master, task_completion, knowledge, exit_
 
     # ── Main page header ──────────────────────────────────────
     st.markdown("### 👔 MANAGER VIEW — Offboarding Oversight")
+    st.markdown(
+        """
+        <div style="
+            background:#ffece1;
+            border-left:4px solid #f49052;
+            border-radius:6px;
+            padding:10px 16px;
+            font-size:13px;
+            color:#505050;
+            margin-bottom:24px;
+        ">
+        👀 <strong>Demo Preview</strong> · You are viewing a sample of the Manager view. 
+        Some sections are available in the Full Version only.
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
     st.markdown("---")
 
     # ── Manager selector ──────────────────────────────────────
@@ -49,7 +66,7 @@ def show_manager_view(employees, tasks_master, task_completion, knowledge, exit_
     manager_names    = sorted(active_employees["manager"].unique().tolist())
 
     st.markdown(
-        '<p style="font-size:16px;font-weight:500;color:#000000;margin-bottom:4px;">Select manager</p>',
+        '<p style="font-size:16px;font-weight:500;color:#000000;margin-bottom:4px;">Select manager to get personalised view</p>',
         unsafe_allow_html=True
     )
     selected_manager = st.selectbox(

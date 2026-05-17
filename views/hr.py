@@ -101,6 +101,24 @@ def show_hr_view(employees, tasks_master, task_completion, knowledge, exit_surve
 
     # ── Main page header ──────────────────────────────────────
     st.markdown("### 🏢 HR VIEW — Offboarding Overview")
+    st.markdown(
+        """
+        <div style="
+            background:#ffece1;
+            border-left:4px solid #f49052;
+            border-radius:6px;
+            padding:10px 16px;
+            font-size:13px;
+            color:#505050;
+            margin-bottom:24px;
+        ">
+        👀 <strong>Demo Preview</strong> · You are viewing a sample of the HR view. 
+        Some sections are available in the Full Version only.
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
     st.markdown("---")
 
     # ── Locked notice helper ──────────────────────────────────
